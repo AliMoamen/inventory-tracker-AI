@@ -1,0 +1,42 @@
+@import "./colors";
+.pantry-item {
+  width: 300px;
+  background-color: #5b99c2;
+  border-radius: 20px;
+  z-index: 1;
+  img {
+    width: 300px;
+    height: 270px;
+    border-radius: 20px 20px 0 0;
+    object-fit: cover;
+  }
+
+  .item-info {
+    padding: 10px;
+    .item-content {
+      height: 140px;
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .quantity {
+      font-size: 20px;
+      color: #1a4870;
+    }
+
+    .category {
+      font-size: 20px;
+      color: #1f316f;
+    }
+
+    .item-tools {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  }
+}
