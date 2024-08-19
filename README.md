@@ -1,30 +1,21 @@
-# React + TypeScript + Vite
+# Inventory Tracker AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AI-powered Inventory Tracker built with React and TypeScript, designed to simplify and enhance inventory management. This application features secure authentication, dynamic item management, and advanced AI capabilities for item recognition and image generation.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Secure Authentication**: User authentication via Firebase using email and password to ensure data protection.
+- **Dynamic Item Management**: Add, edit, and delete inventory items with real-time database updates.
+- **AI-Driven Item Recognition**: Utilize OpenAI Vision to recognize items held by the user.
+- **Automated Image Generation**: Generate images for inventory items to enhance visual representation.
+- **Responsive UI**: Built with React and TypeScript for a smooth, user-friendly experience.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Frontend**: React, TypeScript, Sass
+- **Backend**: Firebase, OpenAI Vision API
+- **Authentication**: Firebase Authentication
 
-- Configure the top-level `parserOptions` property like this:
+## Live Website
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Check out the live version of the Inventory Tracker AI application here: [Live Website URL](https://inventory-tracker-aosman.netlify.app/)
