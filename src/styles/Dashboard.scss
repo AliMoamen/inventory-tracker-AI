@@ -1,103 +1,172 @@
 .dashboard {
-  box-sizing: border-box;
   padding: 20px;
+  width: 90%;
+  margin: 0 auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2b1055;
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.sign-out {
+  background-color: #61c97b;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sign-out:hover {
+  background-color: #4fb565;
+}
+
+.search-tools {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-bar {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+}
+
+.tools {
+  display: flex;
+  gap: 10px;
+}
+
+.add-item-btn, .recognize-item-btn {
+  background-color: #61c97b;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.add-item-btn:hover, .recognize-item-btn:hover {
+  background-color: #4fb565;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+.error-message {
+  text-align: center;
+  font-size: 1.5rem;
+  color: red;
+  margin-top: 20px;
+}
+
+/* Centering the entire grid relative to the page */
+.pantry-grid {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center; /* Horizontally center the grid */
+  align-items: center; /* Vertically center if needed */
+  width: 100%; /* Ensure the grid takes full width */
+}
+
+.pantry-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* For very large screens (desktops) */
+@media (min-width: 1600px) {
+  .pantry-items {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 1200px) {
+  .pantry-items {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+
+/* For smaller screens (tablets in landscape mode) */
+@media (max-width: 1000px) {
+  .pantry-items {
+    grid-template-columns: 1fr 1fr ;
+  }
+}
+
+/* For tablets in portrait mode */
+@media (max-width: 768px) {
+  .pantry-items {
+    grid-template-columns: 1fr;
+  }
+  body {
+    padding: 10;
+  }
   .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 20px;
   }
-  hr {
-    margin-top: 15px;
-    border: 5px solid white;
-    border-radius: 5px;
+  .header h1 {
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.5rem;
   }
-  .search {
+  .sign-out {
     width: 100%;
-    margin-top: 10px;
+  }
+  .search-bar {
     box-sizing: border-box;
-    border-radius: 5px;
-    border: none;
-    padding: 10px;
+    width: 100%;
   }
   .tools {
-    width: 100%;
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
     button {
-      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 10px;
+      font-size: 0.7rem;
     }
-  }
-  .icon {
-    font-size: 20px;
-  }
-
-  .pantry-grid {
-    display: flex;
-    justify-content: center;
-    margin-top: 25px;
-  }
-  .pantry-items {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    column-gap: 15px;
-    row-gap: 15px;
-    box-sizing: border-box;
-  }
-  .error-message {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-    height: 600px;
-    overflow-y: hidden;
-    box-sizing: border-box;
+  }
 
-    p {
-      color: lightgray;
-      opacity: 0.6;
-    }
+  .add-item-btn, .recognize-item-btn {
+    width: 100%;
+  }
+  .search-tools {
+    flex-direction: column;
   }
 }
 
-@media screen and (max-width: 1600px) {
-  .dashboard {
-    .pantry-items {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .dashboard {
-    .pantry-items {
-      grid-template-columns: 1fr 1fr;
-    }
-    .header {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 10px;
-      button {
-        width: 100%;
-      }
-    }
-    .tools {
-      flex-direction: column;
-    }
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .dashboard {
-    .pantry-items {
-      grid-template-columns: 1fr;
-    }
+/* For mobile devices */
+@media (max-width: 480px) {
+  .pantry-items {
+    grid-template-columns: 1fr ;
   }
 }

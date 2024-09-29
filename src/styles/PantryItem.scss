@@ -1,35 +1,53 @@
-@import "./colors";
+
 .pantry-item {
   width: 300px;
-  background-color: #5b99c2;
+  background-color: #4e54c8; /* Darker purple color to match color scheme */
   border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add slight shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 1;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  }
+
   img {
-    width: 300px;
-    height: 270px;
+    width: 100%;
+    height: 200px; /* Keep a consistent height */
     border-radius: 20px 20px 0 0;
     object-fit: cover;
   }
 
   .item-info {
-    padding: 10px;
+    padding: 15px;
+    background-color: #f8f9fa; /* Light background for contrast */
+    border-radius: 0 0 20px 20px;
+
     .item-content {
-      height: 140px;
+      height: 120px;
     }
+
     .item-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      p {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #2c003e; /* Deep purple for text */
+      }
     }
 
     .quantity {
-      font-size: 20px;
-      color: #1a4870;
+      font-size: 1rem;
+      color: #6e96c8; /* Soft blue for contrast */
     }
 
     .category {
-      font-size: 20px;
+      font-size: 1rem;
       color: #1f316f;
+      margin-top: 5px;
     }
 
     .item-tools {
@@ -37,6 +55,25 @@
       justify-content: center;
       gap: 10px;
       margin-top: 10px;
+
+      button {
+        background-color: #61c97b; /* Matching green for buttons */
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #4fb565; /* Darken on hover */
+        }
+      }
+
+      svg {
+        font-size: 1.2rem;
+      }
     }
   }
 }

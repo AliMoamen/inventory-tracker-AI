@@ -142,10 +142,10 @@ const PantryItemForm = ({
       : await handleImageUpload();
     const itemRef = doc(collection(db, "userInfo"), uid);
     await updateDoc(itemRef, {
-      items: [...items, { ...item, imageUrl }],
+      items: [{ ...item, imageUrl } , ...items],
     });
     if (imageUrl) {
-      setItems([...items, { ...item, imageUrl }]);
+      setItems([{ ...item, imageUrl },...items]);
     }
     setShowForm(false);
     setGeneratedImage(null);
@@ -302,7 +302,7 @@ const PantryItemForm = ({
               />
             ) : null}
             <button type="submit">
-              {edit ? "Edit Item" : "ADD PANTRY ITEM"}
+              {edit ? "Edit Item" : "Add a New Item"}
             </button>
           </div>
         </form>

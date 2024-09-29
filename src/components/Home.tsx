@@ -11,7 +11,7 @@ const Home = () => {
         <div className="flex-col flex-center">
           <h1>AI Inventory Tracker</h1>
           <p>Reimagine the way of tracking your inventory</p>
-          <button onClick={() => setShowForm(true)}>Get Started</button>;
+          <button onClick={() => setShowForm(true)}>Get Started</button>
         </div>
         {showForm ? <Form /> : null}
       </div>

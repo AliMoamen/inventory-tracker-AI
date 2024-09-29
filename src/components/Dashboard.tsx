@@ -58,79 +58,86 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <div className="header">
-        <h1>
-          Welcome, {firstName} {lastName}!
-        </h1>
-        <button onClick={handleSignout}>Sign Out</button>
-      </div>
-      <hr />
-      <div>
-        <input
-          onChange={(e) => setSearch(e.target.value)}
-          className="search"
-          type="text"
-          placeholder="Search by item name or category"
-        />
-        <div className="tools">
-          <button
-            onClick={() => {
-              setEdit(null);
-              setRecognize(null);
-              setShowForm(true);
-            }}
-          >
-            <FaPlus className="icon" />
-            Add a New Item
-          </button>
-          <button
-            onClick={() => {
-              setEdit(null);
-              setRecognize(null);
-              setCamera(true);
-            }}
-          >
-            <FaRobot className="icon" /> Recognize Item with AI
-          </button>
-        </div>
-      </div>
-      {camera ? <CameraComponent setRecognize={setRecognize} /> : null}
-      {showForm ? (
-        <PantryItemForm
-          edit={edit}
-          recognize={recognize}
-          setEdit={setEdit}
-          items={items}
-          setItems={setItems}
-        />
-      ) : null}
-      {!items.length ? (
-        <div className="error-message">
-          <p>Add Items to Inventory</p>
-        </div>
-      ) : filteredItems.length ? (
-        <div className="pantry-grid">
-          <div className="pantry-items">
-            {filteredItems.map((item, index) => {
-              return (
-                <PantryItem
-                  items={items}
-                  setItems={setItems}
-                  setEdit={setEdit}
-                  setRecognize={setRecognize}
-                  item={item}
-                  key={index}
-                />
-              );
-            })}
-          </div>
-        </div>
-      ) : (
-        <div className="error-message">
-          <p>No Item Found</p>
-        </div>
-      )}
+    <div className="header">
+      <h1>
+        Welcome, {firstName} {lastName}!
+      </h1>
+      <button className="sign-out" onClick={handleSignout}>Sign Out</button>
     </div>
+  
+    <div className="search-tools">
+      <input
+        onChange={(e) => setSearch(e.target.value)}
+        className="search-bar"
+        type="text"
+        placeholder="Search by item name or category"
+      />
+      <div className="tools">
+        <button
+          className="add-item-btn"
+          onClick={() => {
+            setEdit(null);
+            setRecognize(null);
+            setShowForm(true);
+          }}
+        >
+          <FaPlus className="icon" />
+          Add a New Item
+        </button>
+        <button
+          className="recognize-item-btn"
+          onClick={() => {
+            setEdit(null);
+            setRecognize(null);
+            setCamera(true);
+          }}
+        >
+          <FaRobot className="icon" /> Recognize Item with AI
+        </button>
+      </div>
+    </div>
+  
+  
+    {camera ? <CameraComponent setRecognize={setRecognize} /> : null}
+  
+    {showForm ? (
+      <PantryItemForm
+        edit={edit}
+        recognize={recognize}
+        setEdit={setEdit}
+        items={items}
+        setItems={setItems}
+      />
+    ) : null}
+  
+    {!items.length ? (
+      <div className="error-message">
+        <p>Add Items to Inventory</p>
+      </div>
+    ) : filteredItems.length ? (
+      <div className="pantry-grid">
+        <div className="pantry-items">
+          {filteredItems.map((item, index) => {
+            return (
+              <PantryItem
+                items={items}
+                setItems={setItems}
+                setEdit={setEdit}
+                setRecognize={setRecognize}
+                item={item}
+                key={index}
+              />
+            );
+          })}
+        </div>
+      </div>
+    ) : (
+      <div className="error-message">
+        <p>No Item Found</p>
+      </div>
+    )}
+  </div>
+  
   );
 };
 
