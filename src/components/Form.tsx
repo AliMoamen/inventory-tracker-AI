@@ -25,6 +25,7 @@ export const Form = () => {
   const [emailInUse, setEmailInUse] = useState(false);
   const [signIn, setSignIn] = useState(true);
   const [forgotPassword, setForgotPassword] = useState(false);
+  const [forgotPasswordError, setForgotPasswordError] = useState(false);
   const [userInfo, setUserInfo] = useState<UserInfo>({
     firstName: "",
     lastName: "",
@@ -53,8 +54,8 @@ export const Form = () => {
 
   const validateFields = () => {
     const errors = {
-      firstName: !userInfo.firstName && !signIn,
-      lastName: !userInfo.lastName && !signIn,
+      firstName: !userInfo.firstName && !signIn && !forgotPassword,
+      lastName: !userInfo.lastName && !signIn && !forgotPassword,
       email: !userInfo.email || !validateEmail(userInfo.email),
       password:
         (!userInfo.password && !forgotPassword) ||
@@ -105,13 +106,12 @@ export const Form = () => {
 
   const handleResetPassword = async () => {
     if (!validateFields()) return;
-
     try {
       await sendPasswordResetEmail(auth, userInfo.email);
       setSignIn(true);
       setForgotPassword(false);
     } catch (err) {
-      console.error("Error resetting password:", err);
+      setForgotPasswordError(true);
     }
   };
 
@@ -160,7 +160,9 @@ export const Form = () => {
 
   const renderEmailField = () => (
     <TextField
-      error={signInError || emailInUse || fieldErrors.email}
+      error={
+        signInError || emailInUse || fieldErrors.email || forgotPasswordError
+      }
       required
       style={{ width: "100%" }}
       label="Email"
@@ -169,7 +171,9 @@ export const Form = () => {
       value={userInfo.email}
       onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
       helperText={
-        emailInUse
+        forgotPasswordError
+          ? "Error Resetting Password. Please Try Again Later!"
+          : emailInUse
           ? "Email is already in use"
           : fieldErrors.email
           ? "Invalid email format"

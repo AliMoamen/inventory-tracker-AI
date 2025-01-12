@@ -142,10 +142,10 @@ const PantryItemForm = ({
       : await handleImageUpload();
     const itemRef = doc(collection(db, "userInfo"), uid);
     await updateDoc(itemRef, {
-      items: [{ ...item, imageUrl } , ...items],
+      items: [{ ...item, imageUrl }, ...items],
     });
     if (imageUrl) {
-      setItems([{ ...item, imageUrl },...items]);
+      setItems([{ ...item, imageUrl }, ...items]);
     }
     setShowForm(false);
     setGeneratedImage(null);
